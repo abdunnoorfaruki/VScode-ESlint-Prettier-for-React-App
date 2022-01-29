@@ -104,23 +104,27 @@ visit this link to see the latest EcmaVersion <a href="https://eslint.org/docs/u
 
 ```json
 {
-  "extends": [
-    "airbnb",
-    "airbnb/hooks",
-    "eslint:recommended",
-    "prettier",
-    "plugin:jsx-a11y/recommended"
-  ],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaVersion": 13
-  },
   "env": {
     "browser": true,
-    "node": true,
-    "es6": true,
-    "jest": true
+    "es2021": true
   },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "eslint:recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "js": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "react", "react-hooks"],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react-hooks/rules-of-hooks": "error",
@@ -147,9 +151,9 @@ visit this link to see the latest EcmaVersion <a href="https://eslint.org/docs/u
         "endOfLine": "auto"
       }
     ]
-  },
-  "plugins": ["prettier", "react", "react-hooks"]
+  }
 }
+
 ```
 
 ### Hopefully, this setup will work in your editor. Thank You.
